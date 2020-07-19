@@ -48,11 +48,20 @@ flutter:
     - assets/animations/lock_splash.json
     - assets/images/car.png
     - assets/images/caesar.jpg
+    - assets/images/vigenere.jpg
+    - assets/images/affine.jpg
+    - assets/images/Whitfield_Diffie_Royal_Society.jpg
+    - assets/images/playfair.jpg
+    - assets/images/rsa.jpg
   fonts:
+    - family: MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf
     - family: IRANSansMobile
       fonts:
         - asset: assets/fonts/irsmedn.ttf
         - asset: assets/fonts/irsmed.ttf
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

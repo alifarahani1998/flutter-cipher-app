@@ -1,8 +1,10 @@
-import 'package:cipherapp/cipher/cipher.dart';
+import 'package:cipherapp/ui/navigation_view/home.dart';
+import 'package:cipherapp/ui/navigation_view/profile.dart';
+import 'package:cipherapp/ui/navigation_view/race.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:cipherapp/assets/my_flutter_app_icons.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,66 +12,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int _currentIndex = 0;
+  final List<Widget> _children = [
+    Home(),
+    Race(),
+    Profile(),
+  ];
+
   @override
   Widget build(BuildContext context) {
 
-    List<Cipher> cipherList = new List();
-    cipherList.add(Cipher('سزار', 'assets/images/caesar.jpg'));
-    cipherList.add(Cipher('ویگنر', 'assets/images/caesar.jpg'));
-    cipherList.add(Cipher('آفین', 'assets/images/caesar.jpg'));
-    cipherList.add(Cipher('دیفی هلمن', 'assets/images/caesar.jpg'));
-    cipherList.add(Cipher('پلیفیر', 'assets/images/caesar.jpg'));
-    cipherList.add(Cipher('rsa', 'assets/images/caesar.jpg'));
-
-
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'رمزینه',
-          style: TextStyle(fontFamily: 'IRANSansMobile'),
-        ),
-      ),
-      body: Container(
-        color: Colors.white,
-        child: ListView.builder(
-          itemCount: cipherList.length,
-            itemBuilder: (BuildContext context, int position) {
-              return Padding(
-                padding: EdgeInsets.only(top: 10, left: 20, right: 20),
-                child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    color: Colors.red,
-                    child: InkWell(
-                      onTap: () => print("fsd"),
-                      child: Container(
-                          height: 100,
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(bottomRight: Radius.circular(20), topRight: Radius.circular(20)),
-                              child: Image.asset(cipherList[position].picUrl),
-                            ),
-                          )
-                      ),
-                    )
-                ),
-              );
-            }),
-      ),
+      body: _children[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
-        animationDuration: Duration(milliseconds: 500),
-        backgroundColor: Colors.transparent,
-        color: Colors.yellow,
+        initialIndex: 0,
+        backgroundColor: Colors.blue,
+        color: Colors.white,
         items: <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.gamepad, size: 30),
-          Icon(Icons.person, size: 30),
+          Icon(MyFlutterApp.homie, size: 30, color: Colors.blue,),
+          Icon(MyFlutterApp.race, size: 30, color: Colors.blue,),
+          Icon(MyFlutterApp.profile, size: 30, color: Colors.blue,),
         ],
         onTap: (index) {
-          //Handle button tap
+          setState(() {
+            _currentIndex = index;
+          });
         },
       ),
     );
