@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     cipherList.add(Cipher('caesar', 'سزار', 'assets/images/caesar.jpg'));
-    cipherList.add(Cipher('vigenere', 'ویگنر', 'assets/images/vigenere.jpg'));
+    cipherList.add(Cipher('vigenere', 'ویگنر', 'assets/images/Vigenere.jpg'));
     cipherList.add(Cipher('affine', 'آفین', 'assets/images/affine.jpg'));
     cipherList.add(Cipher('diffiehellman', 'دیفی هلمن', 'assets/images/Whitfield_Diffie_Royal_Society.jpg'));
     cipherList.add(Cipher('playfair', 'پلیفیر', 'assets/images/playfair.jpg'));
@@ -34,13 +34,13 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: Container(
-          color: Colors.white,
+          color: Colors.blue,
           child: ListView.builder(
               itemCount: cipherList.length,
               itemBuilder: (BuildContext context, int position) {
                 return Padding(
                   padding:
-                      EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
+                  EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
                   child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
@@ -49,8 +49,8 @@ class _HomeState extends State<Home> {
                         onTap: () => Navigator.pushNamed(context, '/${cipherList[position].className}'),
                         child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(20),
+                                shape: BoxShape.rectangle,
                                 gradient: LinearGradient(
                                     begin: Alignment.topRight,
                                     end: Alignment.bottomLeft,
@@ -60,32 +60,32 @@ class _HomeState extends State<Home> {
                               children: <Widget>[
                                 position % 2 == 0
                                     ? Align(
-                                        alignment: Alignment.centerRight,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                              bottomRight: Radius.circular(20),
-                                              topRight: Radius.circular(20)),
-                                          child: Image.asset(
-                                              cipherList[position].picUrl),
-                                        ),
-                                      )
+                                  alignment: Alignment.centerRight,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
+                                    child: Image.asset(
+                                        cipherList[position].picUrl),
+                                  ),
+                                )
                                     : Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              topLeft: Radius.circular(20)),
-                                          child: Image.asset(
-                                              cipherList[position].picUrl),
-                                        ),
-                                      ),
+                                  alignment: Alignment.centerLeft,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(20),
+                                        topLeft: Radius.circular(20)),
+                                    child: Image.asset(
+                                        cipherList[position].picUrl),
+                                  ),
+                                ),
                                 Center(
                                   child: Text(cipherList[position].name,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                    fontFamily: 'IRANSansMobile'
-                                  ),),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25,
+                                        fontFamily: 'IRANSansMobile'
+                                    ),),
                                 )
                               ],
                             )),

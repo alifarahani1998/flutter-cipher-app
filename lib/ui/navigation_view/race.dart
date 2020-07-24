@@ -10,7 +10,7 @@ class _RaceState extends State<Race> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.yellow,
+      color: Colors.blue,
     );
   }
 }

@@ -31,6 +31,14 @@ dependencies:
   lottie: ^0.4.1
   sliding_up_panel: ^1.0.2
   curved_navigation_bar: ^0.1.2
+  animated_text_kit: ^2.2.0
+  progress_state_button: ^1.0.1
+  fluttertoast: ^7.0.1
+  url_launcher: ^5.5.0
+  shared_preferences: any
+
+
+
 
 
 
@@ -46,13 +54,17 @@ dev_dependencies:
 flutter:
   assets:
     - assets/animations/lock_splash.json
+    - assets/animations/lock_update.json
     - assets/images/car.png
     - assets/images/caesar.jpg
-    - assets/images/vigenere.jpg
+    - assets/images/Vigenere.jpg
     - assets/images/affine.jpg
     - assets/images/Whitfield_Diffie_Royal_Society.jpg
     - assets/images/playfair.jpg
     - assets/images/rsa.jpg
+    - assets/images/alice.png
+    - assets/images/bob.png
+    - assets/images/person.png
   fonts:
     - family: MyFlutterApp
       fonts:
