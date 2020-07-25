@@ -200,15 +200,119 @@ class _ProfileState extends State<Profile> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20),
-                  child: Text(
-                    'fdf'
-                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundColor: Colors.white,
+                        child: Center(
+                          child: Icon(Icons.settings),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: Colors.white,
+                          child: Center(
+                            child: Icon(Icons.info_outline),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: InkWell(
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Colors.white,
+                            child: Center(
+                              child: Icon(Icons.exit_to_app),
+                            ),
+                          ),
+                          onTap: () => showAlert(),
+                        )
+                      )
+                    ],
+                  )
                 )
               ],
             )),
           ],
         ));
   }
+
+  showAlert() {
+    showDialog(context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: Container(
+                width: 300,
+                height: 200,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        'آیا می خواهید از حساب کاربری خود خارج شوید؟',
+                        style: TextStyle(
+                            fontFamily: 'IRANSansMobile',
+                            fontSize: 20
+                        ),
+                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RaisedButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: Text(
+                              'خیر',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'IRANSansMobile',
+                                  fontSize: 20
+                              ),
+                            ),
+                            color: Colors.red,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: RaisedButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text(
+                                'بله',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'IRANSansMobile',
+                                    fontSize: 20
+                                ),
+                              ),
+                              color: Colors.green,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                )
+            ),
+          );
+        });
+  }
+
 
   @override
   void dispose() {

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:cipherapp/ui/circular_count_down.dart';
+import 'package:cipherapp/ui/quiz/quiz1.dart';
 import 'package:cipherapp/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -80,7 +80,7 @@ class _SplashState extends State<Splash> {
   waitTime() {
     timer = new Timer.periodic(Duration(seconds: 5), (timer) {
       Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (context) => CountDownTimer()
+          builder: (context) => HomePage()
       ));
     });
   }

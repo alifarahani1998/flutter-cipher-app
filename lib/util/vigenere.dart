@@ -102,139 +102,143 @@ class _vigenere extends State<vigenere> {
         child: Center(
             child: ListView(
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(20),
-                  child: TextField(
-                    cursorColor: Colors.blue,
-                    controller: keyController,
-                    autocorrect: true,
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      hintText: 'کلید',
-                      prefixIcon: Icon(
-                        Icons.vpn_key,
-                        color: Colors.blue,
-                      ),
-                      hintStyle: TextStyle(color: Colors.blue),
-                      filled: true,
-                      fillColor: Colors.white,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                        borderSide: BorderSide(color: Colors.blue, width: 2),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.blue, width: 2),
-                      ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: 10),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(20),
-                  child: TextField(
-                    cursorColor: Colors.blue,
-                    controller: messageController,
-                    autocorrect: true,
-                    decoration: InputDecoration(
-                      hintText: 'متن آشکار',
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: Colors.blue,
-                      ),
-                      hintStyle: TextStyle(color: Colors.blue),
-                      filled: true,
-                      fillColor: Colors.white,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                        borderSide: BorderSide(color: Colors.blue, width: 2),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.blue, width: 2),
-                      ),
-                    ),
-                  ),
-                ),
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: ProgressButton.icon(
-                      textStyle: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontFamily: 'IRANSansMobile'
-                      ),
-                      iconedButtons: {
-                        ButtonState.idle: IconedButton(
-                            text: "رمز کن",
-                            icon: Icon(Icons.lock, color: Colors.white),
-                            color: Colors.blue),
-                        ButtonState.loading: IconedButton(
-                            text: "Loading", color: Colors.blue),
-                        ButtonState.fail: IconedButton(
-                            text: "ناموفق",
-                            icon: Icon(Icons.cancel, color: Colors.white),
-                            color: Colors.red.shade300),
-                        ButtonState.success: IconedButton(
-                            text: "رمز شد",
-                            icon: Icon(
-                              Icons.check_circle,
-                              color: Colors.white,
-                            ),
-                            color: Colors.green.shade400)
-                      }, onPressed: onPressedIconWithText, state: stateTextWithIcon),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: 50),
-                    child: response.isEmpty
-                        ? Lottie.asset('assets/animations/lock_update.json', height: 200)
-                        : Container(
-                        width: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.blue  ,
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: TextField(
+                        cursorColor: Colors.blue,
+                        controller: keyController,
+                        autocorrect: true,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          hintText: 'کلید',
+                          prefixIcon: Icon(
+                            Icons.vpn_key,
+                            color: Colors.blue,
+                          ),
+                          hintStyle: TextStyle(color: Colors.blue),
+                          filled: true,
+                          fillColor: Colors.white,
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                          ),
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: TextField(
+                        cursorColor: Colors.blue,
+                        controller: messageController,
+                        autocorrect: true,
+                        decoration: InputDecoration(
+                          hintText: 'متن آشکار',
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Colors.blue,
+                          ),
+                          hintStyle: TextStyle(color: Colors.blue),
+                          filled: true,
+                          fillColor: Colors.white,
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: ProgressButton.icon(
+                          textStyle: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontFamily: 'IRANSansMobile'
+                          ),
+                          iconedButtons: {
+                            ButtonState.idle: IconedButton(
+                                text: "رمز کن",
+                                icon: Icon(Icons.lock, color: Colors.white),
+                                color: Colors.blue),
+                            ButtonState.loading: IconedButton(
+                                text: "Loading", color: Colors.blue),
+                            ButtonState.fail: IconedButton(
+                                text: "ناموفق",
+                                icon: Icon(Icons.cancel, color: Colors.white),
+                                color: Colors.red.shade300),
+                            ButtonState.success: IconedButton(
+                                text: "رمز شد",
+                                icon: Icon(
+                                  Icons.check_circle,
+                                  color: Colors.white,
+                                ),
+                                color: Colors.green.shade400)
+                          }, onPressed: onPressedIconWithText, state: stateTextWithIcon),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.only(top: 50),
+                        child: response.isEmpty
+                            ? Lottie.asset('assets/animations/lock_update.json', height: 200)
+                            : Container(
+                            width: 300,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.blue  ,
+                            ),
 
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Align(
-                                alignment: Alignment.topCenter,
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                                      color: Colors.white,
-                                    ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+                                          color: Colors.white,
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(5),
+                                          child: Text(
+                                            'متن رمز',
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontFamily: 'IRANSansMobile'
+                                            ),
+                                          ),
+                                        )
+                                    )
+                                ),
+                                Center(
                                     child: Padding(
-                                      padding: EdgeInsets.all(5),
+                                      padding: EdgeInsets.all(10),
                                       child: Text(
-                                        'متن رمز',
+                                        response,
                                         style: TextStyle(
-                                            color: Colors.blue,
-                                            fontFamily: 'IRANSansMobile'
+                                            color: Colors.white,
+                                            fontSize: 30
                                         ),
                                       ),
                                     )
-                                )
-                            ),
-                            Center(
-                                child: Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Text(
-                                    response,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 30
-                                    ),
-                                  ),
-                                )
-                            ),
-                          ],
+                                ),
+                              ],
+                            )
                         )
                     )
+                  ],
                 )
               ],
             )),

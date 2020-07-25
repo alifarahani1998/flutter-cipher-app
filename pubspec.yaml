@@ -55,6 +55,8 @@ flutter:
   assets:
     - assets/animations/lock_splash.json
     - assets/animations/lock_update.json
+    - assets/animations/success.json
+    - assets/animations/fail.json
     - assets/images/car.png
     - assets/images/caesar.jpg
     - assets/images/Vigenere.jpg
