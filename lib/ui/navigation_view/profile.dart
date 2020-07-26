@@ -44,202 +44,204 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Color(0xFF00D2FF), Color(0xFF3A7BD5)])),
-        child: ListView(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 50),
-            ),
-            Center(
-                child: Column(
-              children: <Widget>[
-                ClipOval(
-                  child: Image.asset(
-                    'assets/images/person.png',
-                    color: Colors.white,
-                    height: 120,
-                    width: 120,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Container(
-                    height: 40,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white),
-                    child: TextField(
-                      controller: nameController,
-                      cursorColor: Colors.blue,
-                      style:
-                          TextStyle(fontSize: 20, fontFamily: 'IRANSansMobile', color: Colors.blue),
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.rtl,
-                      decoration: InputDecoration(
-                        focusColor: Colors.blue,
-                        hoverColor: Colors.blue,
-                        fillColor: Colors.blue,
-                        hintText: 'نام و نام خانوادگی',
-                        hintStyle: TextStyle(color: Colors.blue),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Container(
-                    height: 40,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white),
-                    child: TextField(
-                      controller: emailController,
-                      cursorColor: Colors.blue,
-                      style:
-                          TextStyle(fontSize: 20, fontFamily: 'IRANSansMobile', color: Colors.blue),
-                      textAlign: TextAlign.center,
-                      textDirection: TextDirection.rtl,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        focusColor: Colors.blue,
-                        hoverColor: Colors.blue,
-                        fillColor: Colors.blue,
-                        hintText: 'ایمیل',
-                        hintStyle: TextStyle(color: Colors.blue),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Container(
-                    height: 40,
-                    width: 300,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white),
-                    child: TextField(
-                      controller: phoneController,
-                      cursorColor: Colors.blue,
-                      style:
-                          TextStyle(fontSize: 20, fontFamily: 'IRANSansMobile', color: Colors.blue),
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      textDirection: TextDirection.rtl,
-                      decoration: InputDecoration(
-                        focusColor: Colors.blue,
-                        hoverColor: Colors.blue,
-                        fillColor: Colors.blue,
-                        hintText: 'شماره همراه (98+)',
-                        hintStyle: TextStyle(color: Colors.blue),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Container(
-                      height: 40,
-                      width: 300,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white),
-                      child: Text(
-                        'امتیاز شما:  ' + score.toString(),
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'IRANSansMobile',
-                            color: Colors.blue),
-                      )),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Container(
-                      height: 40,
-                      width: 300,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white),
-                      child: Text(
-                        'تعداد بازی های شما:  ' + gameNum.toString(),
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'IRANSansMobile',
-                            color: Colors.blue),
-                      )),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Color(0xFF00D2FF), Color(0xFF3A7BD5)])),
+          child: ListView(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 50),
+              ),
+              Center(
+                  child: Column(
                     children: <Widget>[
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.white,
-                        child: Center(
-                          child: Icon(Icons.settings),
+                      ClipOval(
+                        child: Image.asset(
+                          'assets/images/person.png',
+                          color: Colors.white,
+                          height: 120,
+                          width: 120,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.white,
-                          child: Center(
-                            child: Icon(Icons.info_outline),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: InkWell(
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundColor: Colors.white,
-                            child: Center(
-                              child: Icon(Icons.exit_to_app),
+                        padding: EdgeInsets.only(top: 20),
+                        child: Container(
+                          height: 40,
+                          width: 300,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white),
+                          child: TextField(
+                            controller: nameController,
+                            cursorColor: Colors.blue,
+                            style:
+                            TextStyle(fontSize: 20, fontFamily: 'IRANSansMobile', color: Colors.blue),
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                            decoration: InputDecoration(
+                              focusColor: Colors.blue,
+                              hoverColor: Colors.blue,
+                              fillColor: Colors.blue,
+                              hintText: 'نام و نام خانوادگی',
+                              hintStyle: TextStyle(color: Colors.blue),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue, width: 0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue, width: 0),
+                              ),
                             ),
                           ),
-                          onTap: () => showAlert(),
-                        )
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: Container(
+                          height: 40,
+                          width: 300,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white),
+                          child: TextField(
+                            controller: emailController,
+                            cursorColor: Colors.blue,
+                            style:
+                            TextStyle(fontSize: 20, fontFamily: 'IRANSansMobile', color: Colors.blue),
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              focusColor: Colors.blue,
+                              hoverColor: Colors.blue,
+                              fillColor: Colors.blue,
+                              hintText: 'ایمیل',
+                              hintStyle: TextStyle(color: Colors.blue),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue, width: 0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue, width: 0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: Container(
+                          height: 40,
+                          width: 300,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white),
+                          child: TextField(
+                            controller: phoneController,
+                            cursorColor: Colors.blue,
+                            style:
+                            TextStyle(fontSize: 20, fontFamily: 'IRANSansMobile', color: Colors.blue),
+                            textAlign: TextAlign.center,
+                            keyboardType: TextInputType.number,
+                            textDirection: TextDirection.rtl,
+                            decoration: InputDecoration(
+                              focusColor: Colors.blue,
+                              hoverColor: Colors.blue,
+                              fillColor: Colors.blue,
+                              hintText: 'شماره همراه (98+)',
+                              hintStyle: TextStyle(color: Colors.blue),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue, width: 0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.blue, width: 0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: Container(
+                            height: 40,
+                            width: 300,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.white),
+                            child: Text(
+                              'امتیاز شما:  ' + score.toString(),
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: 'IRANSansMobile',
+                                  color: Colors.blue),
+                            )),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: Container(
+                            height: 40,
+                            width: 300,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.white),
+                            child: Text(
+                              'تعداد بازی های شما:  ' + gameNum.toString(),
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: 'IRANSansMobile',
+                                  color: Colors.blue),
+                            )),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Colors.white,
+                                child: Center(
+                                  child: Icon(Icons.settings),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Colors.white,
+                                  child: Center(
+                                    child: Icon(Icons.info_outline),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(left: 20),
+                                  child: InkWell(
+                                    child: CircleAvatar(
+                                      radius: 30,
+                                      backgroundColor: Colors.white,
+                                      child: Center(
+                                        child: Icon(Icons.exit_to_app),
+                                      ),
+                                    ),
+                                    onTap: () => showAlert(),
+                                  )
+                              )
+                            ],
+                          )
                       )
                     ],
-                  )
-                )
-              ],
-            )),
-          ],
-        ));
+                  )),
+            ],
+          )),
+    );
   }
 
   showAlert() {

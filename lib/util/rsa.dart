@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 
 class RSA extends StatefulWidget {
@@ -12,9 +13,19 @@ class _RSAState extends State<RSA> {
     return Scaffold(
       body: Container(
         child: Center(
-          child: Text(
-              'rsa'
-          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Lottie.asset('assets/animations/fail.json', height: 100),
+              Text(
+                'این رمزنگاری در نسخه بعدی فعال خواهد بود',
+                style: TextStyle(
+                    fontFamily: 'IRANSansMobile',
+                    fontSize: 20
+                ),
+              ),
+            ],
+          )
         ),
       ),
     );

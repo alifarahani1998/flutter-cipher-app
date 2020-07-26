@@ -17,8 +17,7 @@ class _Quiz3State extends State<Quiz3>
     with TickerProviderStateMixin {
 
   AnimationController controller;
-  TextEditingController firstController = new TextEditingController();
-  TextEditingController secondController = new TextEditingController();
+  TextEditingController textController = new TextEditingController();
   var score, gameNum;
   SharedPreferences sharedPreferences;
 
@@ -34,7 +33,7 @@ class _Quiz3State extends State<Quiz3>
     getData();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 60),
+      duration: Duration(seconds: 180),
     );
     controller.reverse(from: controller.value == 0.0 ? 1.0 : controller.value);
     controller.addListener(() {
@@ -48,6 +47,10 @@ class _Quiz3State extends State<Quiz3>
     sharedPreferences = await SharedPreferences.getInstance();
     score = sharedPreferences.getInt('score');
     gameNum = sharedPreferences.getInt('gameNum');
+    if (score == null)
+      score = 0;
+    if (gameNum == null)
+      gameNum = 0;
   }
 
 
@@ -141,7 +144,7 @@ class _Quiz3State extends State<Quiz3>
                                 Container(
                                   width: 400,
                                   child: Text(
-                                    'متن آشکار GUITAR را با رمزنگاری آفین با کلید های (4 , 5) بصورت رمز شده کامل کنید.',
+                                    'متن آشکار THEY ARE GOING TO AFRICA را با رمزنگاری پلیفیر و با کلید NINJA بصورت رمز شده درآورید.',
                                     textDirection: TextDirection.rtl,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -153,135 +156,28 @@ class _Quiz3State extends State<Quiz3>
                                 ),
                                 Padding(
                                     padding: EdgeInsets.only(top: 20),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: <Widget>[
-                                        Container(
-                                          color: Colors.white,
-                                          width: 50,
-                                          height: 50,
-                                          child: Center(
-                                            child: Text(
-                                              'C',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800
+                                    child: Container(
+                                      color: Colors.white,
+                                      width: 350,
+                                      height: 50,
+                                      child: Center(
+                                        child: TextField(
+                                          controller: textController,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w800
+                                          ),
+                                          decoration: InputDecoration(
+                                              hintText: '?',
+                                              hintStyle: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 20
                                               ),
-                                            ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 10),
-                                        ),
-                                        Container(
-                                          color: Colors.white,
-                                          width: 50,
-                                          height: 50,
-                                          child: Center(
-                                            child: Text(
-                                              'O',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 10),
-                                        ),
-                                        Container(
-                                          color: Colors.white,
-                                          width: 50,
-                                          height: 50,
-                                          child: Center(
-                                            child: TextField(
-                                              controller: firstController,
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800
-                                              ),
-                                              maxLength: 1,
-                                              decoration: InputDecoration(
-                                                  hintText: '?',
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 20
-                                                  ),
-                                                  counterText: ''
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 10),
-                                        ),
-                                        Container(
-                                          color: Colors.white,
-                                          width: 50,
-                                          height: 50,
-                                          child: Center(
-                                            child: Text(
-                                              'C',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 10),
-                                        ),
-                                        Container(
-                                          color: Colors.white,
-                                          width: 50,
-                                          height: 50,
-                                          child: Center(
-                                            child: TextField(
-                                              controller: secondController,
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800
-                                              ),
-                                              maxLength: 1,
-                                              decoration: InputDecoration(
-                                                  hintText: '?',
-                                                  hintStyle: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 20
-                                                  ),
-                                                  counterText: ''
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 10),
-                                        ),
-                                        Container(
-                                          color: Colors.white,
-                                          width: 50,
-                                          height: 50,
-                                          child: Center(
-                                            child: Text(
-                                              'E',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w800
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    )
+                                      ),
+                                    ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(top: 20),
@@ -322,7 +218,7 @@ class _Quiz3State extends State<Quiz3>
 
     controller.stop();
 
-    if (firstController.text == 'A' && secondController.text == 'I') {
+    if (textController.text == 'UGGWISFHLBBDYTFMWENB') {
       showDialog(context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {

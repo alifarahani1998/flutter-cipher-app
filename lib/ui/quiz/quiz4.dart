@@ -19,6 +19,7 @@ class _Quiz4State extends State<Quiz4>
   AnimationController controller;
   TextEditingController firstController = new TextEditingController();
   TextEditingController secondController = new TextEditingController();
+  TextEditingController thirdController = new TextEditingController();
   var score, gameNum;
   SharedPreferences sharedPreferences;
 
@@ -48,6 +49,10 @@ class _Quiz4State extends State<Quiz4>
     sharedPreferences = await SharedPreferences.getInstance();
     score = sharedPreferences.getInt('score');
     gameNum = sharedPreferences.getInt('gameNum');
+    if (score == null)
+      score = 0;
+    if (gameNum == null)
+      gameNum = 0;
   }
 
 
@@ -141,7 +146,7 @@ class _Quiz4State extends State<Quiz4>
                                 Container(
                                   width: 400,
                                   child: Text(
-                                    'متن آشکار GUITAR را با رمزنگاری آفین با کلید های (4 , 5) بصورت رمز شده کامل کنید.',
+                                    'متن آشکار BICYCLE را با رمزنگاری سزار و با کلید P بصورت رمز شده کامل کنید.',
                                     textDirection: TextDirection.rtl,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -162,7 +167,7 @@ class _Quiz4State extends State<Quiz4>
                                           height: 50,
                                           child: Center(
                                             child: Text(
-                                              'C',
+                                              'Q',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontSize: 20,
@@ -180,7 +185,7 @@ class _Quiz4State extends State<Quiz4>
                                           height: 50,
                                           child: Center(
                                             child: Text(
-                                              'O',
+                                              'X',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontSize: 20,
@@ -225,7 +230,7 @@ class _Quiz4State extends State<Quiz4>
                                           height: 50,
                                           child: Center(
                                             child: Text(
-                                              'C',
+                                              'N',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontSize: 20,
@@ -270,7 +275,7 @@ class _Quiz4State extends State<Quiz4>
                                           height: 50,
                                           child: Center(
                                             child: Text(
-                                              'E',
+                                              'A',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontSize: 20,
@@ -279,7 +284,33 @@ class _Quiz4State extends State<Quiz4>
                                             ),
                                           ),
                                         ),
-
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10),
+                                        ),
+                                        Container(
+                                          color: Colors.white,
+                                          width: 50,
+                                          height: 50,
+                                          child: Center(
+                                            child: TextField(
+                                              controller: thirdController,
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w800
+                                              ),
+                                              maxLength: 1,
+                                              decoration: InputDecoration(
+                                                  hintText: '?',
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.black,
+                                                      fontSize: 20
+                                                  ),
+                                                  counterText: ''
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ],
                                     )
                                 ),
@@ -322,7 +353,7 @@ class _Quiz4State extends State<Quiz4>
 
     controller.stop();
 
-    if (firstController.text == 'A' && secondController.text == 'I') {
+    if (firstController.text == 'R' && secondController.text == 'R' && thirdController.text == 'T') {
       showDialog(context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {

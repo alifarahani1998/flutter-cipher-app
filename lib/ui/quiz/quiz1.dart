@@ -144,7 +144,7 @@ class _Quiz1State extends State<Quiz1>
                                 Container(
                                   width: 400,
                                   child: Text(
-                                    'متن آشکار GUITAR را با رمزنگاری آفین با کلید های (4 , 5) بصورت رمز شده کامل کنید.',
+                                    'متن آشکار GUITAR را با رمزنگاری آفین و با کلید های (4 , 5) بصورت رمز شده کامل کنید.',
                                     textDirection: TextDirection.rtl,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
