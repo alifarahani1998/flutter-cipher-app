@@ -1,3 +1,3 @@
 # cipherapp
 
-A new Flutter application.
+A flutter application that introduces you to different ciphers
